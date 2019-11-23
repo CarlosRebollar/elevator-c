@@ -18,6 +18,8 @@ CMSIS \
 board \
 drivers \
 source/1_APP \
+source/2_HIL \
+source/3_HAL \
 startup \
 utilities \
 

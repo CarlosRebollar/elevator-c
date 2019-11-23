@@ -1,0 +1,2 @@
+ADC_Driver.c:87:7:ADC_vfnDriverInit	8	static
+ADC_Driver.c:116:9:ADC_bfnReadADC	24	static
