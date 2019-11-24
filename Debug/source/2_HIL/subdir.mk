@@ -4,12 +4,18 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../source/2_HIL/Comunication.c \
+../source/2_HIL/EngineManager.c \
 ../source/2_HIL/FloorManager.c 
 
 OBJS += \
+./source/2_HIL/Comunication.o \
+./source/2_HIL/EngineManager.o \
 ./source/2_HIL/FloorManager.o 
 
 C_DEPS += \
+./source/2_HIL/Comunication.d \
+./source/2_HIL/EngineManager.d \
 ./source/2_HIL/FloorManager.d 
 
 

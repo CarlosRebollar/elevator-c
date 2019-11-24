@@ -1,32 +1,27 @@
+#include "Comunication.h"
+#include "EngineManager.h"
 #include "FloorManager.h"
 #include "MKL25Z4.h"
 
-#define LED_1 30
-#define LED_2 29
-#define LED_3 23
-
 int main(void) {
 
-	uint_8 ADC_Channel = 2;
+	uint_8 initialFloor = 0;
+	uint_8 ADC_Channel = 1;
+	uint_8 stop = 0;
 
+	Com_SubSysInit();
+	EngineManager_SubSysInit();
 	FloorManager_SubSysInit();
 
-	SIM->SCGC5 |= SIM_SCGC5_PORTE_MASK;
-
-	PORTE->PCR[LED_1] |= (1 << PORT_PCR_MUX_SHIFT);
-	PORTE->PCR[LED_2] |= (1 << PORT_PCR_MUX_SHIFT);
-	PORTE->PCR[LED_3] |= (1 << PORT_PCR_MUX_SHIFT);
-
-	// SET PINS FOR LEDS AS OUTPUT *PREGUNTAR
-	GPIOE->PDDR |= (1 << LED_1);
-
 	while(1) {
-		uint_8 floor = FloorManager_GetStop(ADC_Channel);
+		stop = FloorManager_GetStop(ADC_Channel);
 
-		if (floor) {
-			GPIOE->PDOR = (1 << LED_1);
+		if (stop) {
+			EngineManager_DisableEngine();
+			initialFloor = ADC_Channel;
 		} else {
-			GPIOE->PDOR = ~(1 << LED_1);
+			EngineManager_EnableEngine();
+			EngineManager_MoveEngine(initialFloor, ADC_Channel);
 		}
 	}
 

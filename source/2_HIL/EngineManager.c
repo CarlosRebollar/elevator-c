@@ -1,18 +1,18 @@
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 /*!
-	\file	FloorManager.c
+	\file	EngineManager.c
 	\author	Carlos Palacios Jose Carrillo
 	\date	October 16th, 2019
-	\brief	File for managing logic of how the eelevato floors will work.
+	\brief	File for managing managment of engine movement.
 */
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 // Includes
 //------------------------------------------------------------------------------
 
-	#include "FloorManager.h"
-	#include "ADC_Driver.h"
+	#include "EngineManager.h"
+	#include "GPIO_Driver.h"
 
 //------------------------------------------------------------------------------
 // Defines
@@ -33,21 +33,58 @@
 /*!
     \fn		void FloorManager_SubSysInit (void)
     \return	This function does not return a value.
-    \brief	Start ADC subsystem.
+    \brief	Start Engine subsystem.
 */
 
-	void FloorManager_SubSysInit(void) {
-		ADC_vfnDriverInit();
+	void EngineManager_SubSysInit(void) {
+		GPIO_vfnDriverInit();
 	}
 
 /*!
-    \fn		uint_8 FloorManager_GetFloor (uint_8 bChannel, uint_8 *bpFloor)
-    \return	This function does not return a value.
-    \brief	Get value that ADC is reading (The floor in which you currently are.
+	\fn		void EngineManager_MoveEngine (void)
+	\return	This function does not return a value.
+	\brief	Moves the engine to the desire position.
 */
 
-	uint_8 FloorManager_GetStop(uint_8 bChannel) {
-		return ADC_bfnReadADC(bChannel);
+	void EngineManager_MoveEngine(uint_8 initialPos, uint_8 desiredPos) {
+		switch(initialPos) {
+			case 0:
+				GPIO_vfnMoveEngineRight();
+				break;
+			case 1:
+				switch(desiredPos) {
+					case 0:
+						GPIO_vfnMoveEngineLeft();
+						break;
+					case 2:
+						GPIO_vfnMoveEngineRight();
+						break;
+				}
+				break;
+			case 2:
+				GPIO_vfnMoveEngineLeft();
+				break;
+		}
+	}
+
+/*!
+	\fn		void FloorManager_SubSysInit (void)
+	\return	This function does not return a value.
+	\brief	Enable engine
+*/
+
+	void EngineManager_EnableEngine(void) {
+		GPIO_vfnEnableEngine();
+	}
+
+/*!
+	\fn		void FloorManager_SubSysInit (void)
+	\return	This function does not return a value.
+	\brief	Disable engine.
+*/
+
+	void EngineManager_DisableEngine(void) {
+		GPIO_vfnDisableEngine();
 	}
 
 //------------------------------------------------------------------------------

@@ -1,0 +1,5 @@
+GPIO_Driver.c:59:7:GPIO_vfnDriverInit	8	static
+GPIO_Driver.c:79:7:GPIO_vfnMoveEngineRight	8	static
+GPIO_Driver.c:92:7:GPIO_vfnMoveEngineLeft	8	static
+GPIO_Driver.c:105:7:GPIO_vfnEnableEngine	8	static
+GPIO_Driver.c:114:7:GPIO_vfnDisableEngine	8	static
