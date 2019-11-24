@@ -1,0 +1,3 @@
+Comunication.c:38:7:Com_SubSysInit	8	static
+Comunication.c:48:7:Com_ReceiveData	16	static
+Comunication.c:58:9:Com_getReadFlag	8	static

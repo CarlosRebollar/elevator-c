@@ -4,13 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../source/3_HAL/ADC_Driver.c 
+../source/3_HAL/ADC_Driver.c \
+../source/3_HAL/GPIO_Driver.c \
+../source/3_HAL/UART_Driver.c 
 
 OBJS += \
-./source/3_HAL/ADC_Driver.o 
+./source/3_HAL/ADC_Driver.o \
+./source/3_HAL/GPIO_Driver.o \
+./source/3_HAL/UART_Driver.o 
 
 C_DEPS += \
-./source/3_HAL/ADC_Driver.d 
+./source/3_HAL/ADC_Driver.d \
+./source/3_HAL/GPIO_Driver.d \
+./source/3_HAL/UART_Driver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

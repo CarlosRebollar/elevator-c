@@ -13,6 +13,7 @@
 #define _4_SL_PROJECTTYPES_H_
 
 typedef unsigned char uint_8;
+typedef unsigned long uint_32;
 
 //------------------------------------------------------------------------------
 

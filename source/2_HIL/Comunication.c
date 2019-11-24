@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 /*!
-	\file	FloorManager.c
+	\file	Communication.c
 	\author	Carlos Palacios Jose Carrillo
 	\date	October 16th, 2019
 	\brief	File for managing logic of how the eelevato floors will work.
@@ -11,8 +11,8 @@
 // Includes
 //------------------------------------------------------------------------------
 
-	#include "FloorManager.h"
-	#include "ADC_Driver.h"
+	#include "Comunication.h"
+	#include "UART_Driver.h"
 
 //------------------------------------------------------------------------------
 // Defines
@@ -29,25 +29,34 @@
 //------------------------------------------------------------------------------
 // Functions
 //------------------------------------------------------------------------------
-
 /*!
-    \fn		void FloorManager_SubSysInit (void)
+    \fn		void Com_SubSysInit (void)
     \return	This function does not return a value.
-    \brief	Start ADC subsystem.
+    \brief	Start UART subsystem.
 */
 
-	void FloorManager_SubSysInit(void) {
-		ADC_vfnDriverInit();
+	void Com_SubSysInit (void) {
+		UART_vfnDriverInit();
 	}
 
 /*!
-    \fn		uint_8 FloorManager_GetFloor (uint_8 bChannel, uint_8 *bpFloor)
-    \return	This function does not return a value.
-    \brief	Get value that ADC is reading (The floor in which you currently are.
+	\fn		void Com_ReceiveData (uint_8 *data)
+	\return	This function does not return a value.
+	\brief	Receive data from communication and store in in pointer.
 */
 
-	uint_8 FloorManager_GetStop(uint_8 bChannel) {
-		return ADC_bfnReadADC(bChannel);
+	void Com_ReceiveData (uint_8 *data) {
+		UART_vfnDriverReceiveData (data);
+	}
+
+/*!
+	\fn		uint_8 Com_getReadFlag (void)
+	\return	UART read flag.
+	\brief	Returns flag if the UART has read the data.
+*/
+
+	uint_8 Com_getReadFlag (void) {
+		return UART_bfnDriverGetReadFlag();
 	}
 
 //------------------------------------------------------------------------------

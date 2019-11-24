@@ -1,0 +1,4 @@
+EngineManager.c:39:7:EngineManager_SubSysInit	8	static
+EngineManager.c:49:7:EngineManager_MoveEngine	16	static
+EngineManager.c:76:7:EngineManager_EnableEngine	8	static
+EngineManager.c:86:7:EngineManager_DisableEngine	8	static

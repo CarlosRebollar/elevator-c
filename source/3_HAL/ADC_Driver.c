@@ -19,42 +19,42 @@
 //------------------------------------------------------------------------------
 /*!
     \def	PORTE_20 AS ADC
-    \brief	Pin used for ADC input.
+    \brief	Pin used for ADC input. Floor 0
 */
 
 	#define PORTE_20 20
 
 /*!
     \def	PORTE_21 AS ADC
-    \brief	Pin used for ADC input.
+    \brief	Pin used for ADC input. Floor 1
 */
 
 	#define PORTE_21 21
 
 /*!
     \def	PORTE_22 AS ADC
-    \brief	Pin used for ADC input.
+    \brief	Pin used for ADC input. Floor 2
 */
 
 	#define PORTE_22 22
 
 /*!
     \def	ADC CHANNEL SE0
-    \brief	Pin used for ADC input.
+    \brief	Pin used for ADC input. Floor 0.
 */
 
 	#define ADC_CHANNEL_SE0  0
 
 /*!
     \def	ADC CHANNEL SE3
-    \brief	Pin used for ADC input.
+    \brief	Pin used for ADC input. Floor 2.
 */
 
 	#define ADC_CHANNEL_SE3  3
 
 /*!
     \def	ADC CHANNEL SE4a
-    \brief	Pin used for ADC input.
+    \brief	Pin used for ADC input. Floor 1.
 */
 
 	#define ADC_CHANNEL_SE4a 4
@@ -106,9 +106,8 @@
 	}
 
 /*!
-    \fn		uint_8 ADC_bfnReadADC (uint_8 bChannel, uint_8 *bpADCValue)
+    \fn		uint_8 ADC_bfnReadADC (uint_8 bChannel)
     \param	bChannel This parameter is for indicating which channel of the ADC you want to read.
-    \param	bpADCValue This parameters is for storing the ADC value in the variable desired.
     \return This function returns true if is between 0 and 50 the value gotten from the ADC.
     \brief	This function starts the coco on the desired channel for the ADC and get its value.
 */
