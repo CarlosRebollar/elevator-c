@@ -38,6 +38,8 @@
 
 	uint_8 FloorManager_GetStop(uint_8 channel);
 
+	uint_8 FloorManager_GetFloor(void);
+
 //------------------------------------------------------------------------------
 
 #endif /* 2_HIL_FLOORMANAGER_H_ */
